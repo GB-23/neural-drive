@@ -1,0 +1,271 @@
+[gd_scene format=3 uid="uid://dpc1wpk0aosre"]
+
+[ext_resource type="Script" uid="uid://c1bqwlunr2da7" path="res://car.gd" id="1_1k6jk"]
+[ext_resource type="Material" uid="uid://cl5vbtdjdtuvf" path="res://tire.tres" id="2_47788"]
+[ext_resource type="Material" uid="uid://058mxcyv3wio" path="res://light.tres" id="2_gvgjh"]
+[ext_resource type="Material" uid="uid://cuutvprtpcvo2" path="res://rim.tres" id="3_eryuy"]
+[ext_resource type="Material" uid="uid://cfqyoofewyy8k" path="res://backlight.tres" id="3_w13o2"]
+[ext_resource type="SphereMesh" uid="uid://c8cfqxwhn3irq" path="res://smokemesh.tres" id="6_eryuy"]
+[ext_resource type="Material" uid="uid://dkkyx64stroof" path="res://backlight_trail.tres" id="7_w8o8f"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y2uan"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_gvgjh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w13o2"]
+albedo_color = Color(0.63444895, 0.04192826, 0.22948429, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_w8o8f"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_02hxf"]
+albedo_color = Color(0.39340165, 0.36573884, 0.33540678, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4iter"]
+albedo_color = Color(0.42287776, 0.3958827, 0.37027618, 1)
+metallic = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_47788"]
+albedo_color = Color(0.16937351, 0.60818404, 0.6433303, 1)
+metallic = 0.69
+rim_enabled = true
+clearcoat_enabled = true
+refraction_enabled = true
+
+[sub_resource type="Curve" id="Curve_w8o8f"]
+_limits = [0.0, 5.0, 0.0, 1.0]
+_data = [Vector2(0, 1.3483148), 0.0, 0.0, 0, 0, Vector2(1, 3.0898879), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_02hxf"]
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_4iter"]
+colors = PackedColorArray(1, 1, 1, 0.047058824, 0.57700837, 0.5770084, 0.57700837, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_byqlc"]
+gradient = SubResource("Gradient_4iter")
+
+[sub_resource type="Curve" id="Curve_2q5ox"]
+_data = [Vector2(0, 1), 0.0, -1.0181152, 0, 0, Vector2(1, 0.00012624264), -0.9915904, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ynajl"]
+curve = SubResource("Curve_2q5ox")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pfg5i"]
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_ynajl")
+color_ramp = SubResource("GradientTexture1D_byqlc")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_w8o8f"]
+material = ExtResource("7_w8o8f")
+size = Vector2(0.25, 0.25)
+orientation = 2
+
+[node name="Holder" type="CharacterBody3D" unique_id=1108492907]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0.39222074, 0)
+collision_layer = 2
+script = ExtResource("1_1k6jk")
+
+[node name="Collision" type="CollisionShape3D" parent="." unique_id=1872371953]
+transform = Transform3D(1, 0, 0, 0, 0.8816796, 0, 0, 0, 1, 0, 0.06309593, 0)
+shape = SubResource("BoxShape3D_y2uan")
+
+[node name="Body" type="CSGMesh3D" parent="." unique_id=2034587136]
+transform = Transform3D(1.6815124, 0, 0, 0, 0.8816796, 0, 0, 0, 2.5053215, 0, 0.06309593, 0)
+mesh = SubResource("BoxMesh_gvgjh")
+material = SubResource("StandardMaterial3D_w13o2")
+
+[node name="Wheel" type="CSGMesh3D" parent="." unique_id=486280195]
+transform = Transform3D(-3.059797e-08, 0.14, -3.059797e-08, 0, -6.119594e-09, -0.7, -0.7, -6.119594e-09, 1.33748e-15, -0.7925268, -0.28890926, -0.7906174)
+mesh = SubResource("CylinderMesh_w8o8f")
+material = ExtResource("2_47788")
+
+[node name="Rim" type="CSGMesh3D" parent="Wheel" unique_id=1800309549]
+transform = Transform3D(0.8, 0, 6.352747e-22, 0, 0.8, 0, 2.1175824e-22, 0, 0.8, 0, -0.23381186, 0)
+mesh = SubResource("CylinderMesh_w8o8f")
+material = ExtResource("3_eryuy")
+
+[node name="Wheel2" type="CSGMesh3D" parent="." unique_id=1949234728]
+transform = Transform3D(-3.059797e-08, 0.14, -3.059797e-08, 0, -6.119594e-09, -0.7, -0.7, -6.119594e-09, 1.33748e-15, -0.7925269, -0.28890926, 0.75844026)
+mesh = SubResource("CylinderMesh_w8o8f")
+material = ExtResource("2_47788")
+
+[node name="Rim" type="CSGMesh3D" parent="Wheel2" unique_id=482605816]
+transform = Transform3D(0.8, 0, 6.352747e-22, 0, 0.8, 0, 2.1175824e-22, 0, 0.8, 0, -0.23381186, 0)
+mesh = SubResource("CylinderMesh_w8o8f")
+material = ExtResource("3_eryuy")
+
+[node name="Wheel4" type="CSGMesh3D" parent="." unique_id=1593506165]
+transform = Transform3D(-3.059797e-08, -0.14, 3.059797e-08, 0, -6.119594e-09, -0.7, 0.7, -6.119594e-09, 1.3374798e-15, 0.8252854, -0.28890926, 0.75776714)
+mesh = SubResource("CylinderMesh_w8o8f")
+material = ExtResource("2_47788")
+
+[node name="Rim" type="CSGMesh3D" parent="Wheel4" unique_id=1026906854]
+transform = Transform3D(0.8, 0, 6.352747e-22, 0, 0.8, 0, 2.1175824e-22, 0, 0.8, 0, -0.23381186, 0)
+mesh = SubResource("CylinderMesh_w8o8f")
+material = ExtResource("3_eryuy")
+
+[node name="Wheel3" type="CSGMesh3D" parent="." unique_id=776209526]
+transform = Transform3D(-3.059797e-08, -0.14, 3.059797e-08, 0, -6.119594e-09, -0.7, 0.7, -6.119594e-09, 1.3374798e-15, 0.7607146, -0.28890926, -0.78994423)
+mesh = SubResource("CylinderMesh_w8o8f")
+material = ExtResource("2_47788")
+
+[node name="Rim" type="CSGMesh3D" parent="Wheel3" unique_id=96007750]
+transform = Transform3D(0.8, 0, 6.352747e-22, 0, 0.8, 0, 2.1175824e-22, 0, 0.8, 0, -0.23381186, 0)
+mesh = SubResource("CylinderMesh_w8o8f")
+material = ExtResource("3_eryuy")
+
+[node name="Body3" type="CSGMesh3D" parent="." unique_id=1232446270]
+transform = Transform3D(1.6733232, 0, -1.7763568e-15, 0, 0.6841168, 0, -7.1054274e-15, 0, 0.6403858, 4.135647e-08, 0.09063184, -0.94612575)
+mesh = SubResource("BoxMesh_gvgjh")
+material = SubResource("StandardMaterial3D_02hxf")
+
+[node name="Exhaust" type="CSGMesh3D" parent="." unique_id=1385777731]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 2.505, 0.56448233, -0.23291704, 0.14891347)
+mesh = SubResource("BoxMesh_gvgjh")
+material = SubResource("StandardMaterial3D_4iter")
+
+[node name="Top" type="CSGMesh3D" parent="." unique_id=1036605861]
+transform = Transform3D(1.4834123, 0, 0, 0, 1, 0, 0, 0, 1.3950819, 0, 0.55319816, 0)
+mesh = SubResource("BoxMesh_gvgjh")
+material = SubResource("StandardMaterial3D_w13o2")
+
+[node name="Top2" type="CSGMesh3D" parent="." unique_id=1659550278]
+transform = Transform3D(1.3941793, 0, 0, 0, 0.39256084, 0, 0, 0, 1.3950819, 0, 0.77310777, -0.0040929914)
+mesh = SubResource("BoxMesh_gvgjh")
+material = SubResource("StandardMaterial3D_47788")
+
+[node name="Top5" type="CSGMesh3D" parent="." unique_id=1766554518]
+transform = Transform3D(1.3941793, 0, -3.5527137e-15, 0, 0.39256084, 0, 0, 0, 0.91743845, -1.07523e-08, 0.77310777, 0.24189097)
+mesh = SubResource("BoxMesh_gvgjh")
+material = SubResource("StandardMaterial3D_47788")
+
+[node name="Top3" type="CSGMesh3D" parent="." unique_id=1399760984]
+transform = Transform3D(1.4968139, 0, 0, 0, 0.39256084, 0, 0, 0, 0.44505167, 0.00010049343, 0.7731077, 0.38879812)
+mesh = SubResource("BoxMesh_gvgjh")
+material = SubResource("StandardMaterial3D_47788")
+
+[node name="Top4" type="CSGMesh3D" parent="." unique_id=288066214]
+transform = Transform3D(1.4968139, 0, 0, 0, 0.39256084, 0, 0, 0, 0.44505167, 0.00010049343, 0.7731077, -0.31306458)
+mesh = SubResource("BoxMesh_gvgjh")
+material = SubResource("StandardMaterial3D_47788")
+
+[node name="HeadlightL" type="CSGMesh3D" parent="." unique_id=1178888494]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.445, -0.621, 0.106, -1.071)
+mesh = SubResource("BoxMesh_gvgjh")
+material = ExtResource("2_gvgjh")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="HeadlightL" unique_id=508274940]
+light_color = Color(0.72156864, 0.5254902, 0.2627451, 1)
+light_energy = 15.0
+light_size = 0.1
+shadow_enabled = true
+spot_range = 5.190129
+spot_angle = 33.472237
+
+[node name="HeadlightR" type="CSGMesh3D" parent="." unique_id=667768143]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.445, 0.6213015, 0.10644668, -1.0713878)
+mesh = SubResource("BoxMesh_gvgjh")
+material = ExtResource("2_gvgjh")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="HeadlightR" unique_id=420105672]
+light_color = Color(0.72156864, 0.5254902, 0.2627451, 1)
+light_energy = 15.0
+light_size = 0.1
+shadow_enabled = true
+spot_range = 5.190129
+spot_angle = 33.472237
+
+[node name="BacklightL" type="CSGMesh3D" parent="." unique_id=1601167940]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.445, -0.621, 0.106, 1.05)
+mesh = SubResource("BoxMesh_gvgjh")
+material = ExtResource("3_w13o2")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="BacklightL" unique_id=868550334]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0)
+light_color = Color(1, 0, 0, 1)
+light_energy = 8.0
+light_size = 0.1
+shadow_enabled = true
+spot_range = 4.3112855
+spot_angle = 33.472237
+
+[node name="BacklightR" type="CSGMesh3D" parent="." unique_id=1676026067]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.445, 0.621, 0.106, 1.05)
+mesh = SubResource("BoxMesh_gvgjh")
+material = ExtResource("3_w13o2")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="BacklightR" unique_id=611495407]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0)
+light_color = Color(1, 0, 0, 1)
+light_energy = 8.0
+light_size = 0.1
+shadow_enabled = true
+spot_range = 4.3112855
+spot_angle = 33.472237
+
+[node name="FrontRay" type="RayCast3D" parent="." unique_id=926428970]
+target_position = Vector3(0, 0, -40)
+
+[node name="LeftRay" type="RayCast3D" parent="." unique_id=361742319]
+target_position = Vector3(-20, 0, 0)
+
+[node name="RightRay" type="RayCast3D" parent="." unique_id=1445825865]
+target_position = Vector3(20, 0, 0)
+
+[node name="FrontLeftRay" type="RayCast3D" parent="." unique_id=1860235537]
+target_position = Vector3(-20, 0, -20)
+
+[node name="FrontHalfLeftRay" type="RayCast3D" parent="." unique_id=948344697]
+target_position = Vector3(-8, 0, -20)
+
+[node name="FrontRightRay" type="RayCast3D" parent="." unique_id=1083494269]
+target_position = Vector3(20, 0, -20)
+
+[node name="FrontHalfRightRay" type="RayCast3D" parent="." unique_id=374171180]
+target_position = Vector3(8, 0, -20)
+
+[node name="Billboard" type="Node3D" parent="." unique_id=378400295]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8794708, 0)
+
+[node name="Label3D" type="Label3D" parent="Billboard" unique_id=1948514609]
+pixel_size = 0.01
+billboard = 1
+font_size = 60
+outline_size = 18
+
+[node name="ExhaustParticle" type="CPUParticles3D" parent="." unique_id=1227231565]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.54587835, -0.240275, 1.4308137)
+cast_shadow = 0
+amount = 32
+lifetime = 1.2
+mesh = ExtResource("6_eryuy")
+direction = Vector3(1, 1, 10)
+gravity = Vector3(0, 2, 0)
+initial_velocity_min = 0.2
+initial_velocity_max = 1.0
+damping_min = 0.15
+damping_max = 0.5
+scale_amount_curve = SubResource("Curve_w8o8f")
+color_ramp = SubResource("Gradient_02hxf")
+
+[node name="TrailRedR" type="GPUParticles3D" parent="." unique_id=208769110]
+transform = Transform3D(1.9106855e-15, -4.371139e-08, 1, -1, -4.371139e-08, 0, 4.371139e-08, -1, -4.371139e-08, 0.621, 0.106, 1.05)
+amount = 256
+lifetime = 0.15000000000000002
+fixed_fps = 0
+trail_enabled = true
+trail_lifetime = 0.05
+process_material = SubResource("ParticleProcessMaterial_pfg5i")
+draw_pass_1 = SubResource("PlaneMesh_w8o8f")
+
+[node name="TrailRedL" type="GPUParticles3D" parent="." unique_id=1630240102]
+transform = Transform3D(1.9106855e-15, -4.371139e-08, 1, -1, -4.371139e-08, 0, 4.371139e-08, -1, -4.371139e-08, -0.621, 0.106, 1.05)
+amount = 256
+lifetime = 0.15000000000000002
+fixed_fps = 0
+trail_enabled = true
+trail_lifetime = 0.05
+process_material = SubResource("ParticleProcessMaterial_pfg5i")
+draw_pass_1 = SubResource("PlaneMesh_w8o8f")

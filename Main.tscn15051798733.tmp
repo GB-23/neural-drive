@@ -1,0 +1,146 @@
+[gd_scene format=3 uid="uid://tv22e1n4ks20"]
+
+[ext_resource type="Script" uid="uid://dq3bdtx7wjsfo" path="res://main.gd" id="1_uu6xs"]
+[ext_resource type="Script" uid="uid://csatk8k2ke4q2" path="res://camera.gd" id="2_uu6xs"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uu6xs"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_r0du0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_glv2v"]
+albedo_color = Color(0.32404238, 0.6096612, 0.11616065, 1)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_glv2v"]
+sky_top_color = Color(0.10980696, 0.4777431, 0.6912975, 1)
+sky_horizon_color = Color(0.574321, 0.6779481, 0.6872747, 1)
+ground_horizon_color = Color(0.61472976, 0.6930885, 0.74017745, 1)
+ground_curve = 0.12125767
+
+[sub_resource type="Sky" id="Sky_uu6xs"]
+sky_material = SubResource("ProceduralSkyMaterial_glv2v")
+
+[sub_resource type="Environment" id="Environment_r0du0"]
+background_mode = 2
+sky = SubResource("Sky_uu6xs")
+ambient_light_source = 3
+ambient_light_color = Color(0.4379775, 0.575808, 0.65237063, 1)
+reflected_light_source = 2
+tonemap_mode = 3
+tonemap_exposure = 0.71
+ssr_enabled = true
+ssao_enabled = true
+ssil_enabled = true
+sdfgi_enabled = true
+sdfgi_use_occlusion = true
+glow_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0075
+adjustment_enabled = true
+adjustment_contrast = 1.125
+adjustment_saturation = 1.16
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_cm0pq"]
+
+[sub_resource type="Compositor" id="Compositor_fos0i"]
+
+[sub_resource type="Curve3D" id="Curve3D_glv2v"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -111.09555, 0, -27.972075, 0, 0, 0, 0, 0, 0, -113.68669, 0, -11.147142, 0, 0, 0, 0, 0, 0, -111.75397, 0, 1.553566, 0, 0, 0, 0, 0, 0, -104.29921, 0, 20.052433, 0, 0, 0, 0, 0, 0, -90.033005, 0, 29.681438, 0, 0, 0, 0, 0, 0, -64.306274, 0, 43.336395, 0, 0, 0, 0, 0, 0, -43.922794, 0, 48.481735, 0, 0, 0, 0, 0, 0, -30.663631, 0, 49.86702, 0, 0, 0, 0, 0, 0, -21.758228, 0, 46.106964, 0, 0, 0, 0, 0, 0, -10.280148, 0, 40.763718, 0, 0, 0, 0, 0, 0, -6.5200768, 0, 34.430984, 0, 0, 0, 0, 0, 0, -5.5306053, 0, 26.712967, 0, 0, 0, 0, 0, 0, -5.926403, 0, 20.973932, 0, 0, 0, 0, 0, 0, -8.696957, 0, 13.8496065, 0, 0, 0, 0, 0, 0, -12.852825, 0, 9.693747, 0, 0, 0, 0, 0, 0, -18.789753, 0, 6.5273824, 0, 0, 0, 0, 0, 0, -24.924595, 0, 3.5589094, 0, 0, 0, 0, 0, 0, -29.84686, 0, -1.8612673, 0, 0, 0, 0, 0, 0, -31.159655, 0, -7.9415703, 0, 0, 0, 0, 0, 0, -30.069935, 0, -14.449799, 0, 0, 0, 0, 0, 0, -30.538372, 0, -19.183414, 0, 0, 0, 0, 0, 0, -28.050976, 0, -27.474737, 0, 0, 0, 0, 0, 0, -23.698029, 0, -31.96587, 0, 0, 0, 0, 0, 0, -15.4254875, 0, -34.239594, 0, 0, 0, 0, 0, 0, -5.332699, 0, -33.645897, 0, 0, 0, 0, 0, 0, 3.5726967, 0, -32.65641, 0, 0, 0, 0, 0, 0, 12.082325, 0, -31.864817, 0, 0, 0, 0, 0, 0, 18.217152, 0, -31.666918, 0, 0, 0, 0, 0, 0, 30.091022, 0, -34.239594, 0, 0, 0, 0, 0, 0, 40.381718, 0, -36.812267, 0, 0, 0, 0, 0, 0, 50.078724, 0, -37.40596, 0, 0, 0, 0, 0, 0, 58.81299, 0, -34.743874, 0, 0, 0, 0, 0, 0, 70.58324, 0, -24.244617, 0, 0, 0, 0, 0, 0, 81.01649, 0, -18.786163, 0, 0, 0, 0, 0, 0, 91.8643, 0, -19.131636, 0, 0, 0, 0, 0, 0, 101.06552, 0, -23.9099, 0, 0, 0, 0, 0, 0, 104.315346, 0, -29.737864, 0, 0, 0, 0, 0, 0, 104.52023, 0, -34.68862, 0, 0, 0, 0, 0, 0, 101.40417, 0, -41.610237, 0, 0, 0, 0, 0, 0, 98.09447, 0, -44.50002, 0, 0, 0, 0, 0, 0, 92.14552, 0, -47.759636, 0, 0, 0, 0, 0, 0, 73.62857, 0, -55.018875, 0, 0, 0, 0, 0, 0, 61.952595, 0, -57.59155, 0, 0, 0, 0, 0, 0, 47.703953, 0, -57.39365, 0, 0, 0, 0, 0, 0, 33.653187, 0, -58.38314, 0, 0, 0, 0, 0, 0, 19.404545, 0, -58.18524, 0, 0, 0, 0, 0, 0, 1.3958321, 0, -58.778934, 0, 0, 0, 0, 0, 0, -7.113781, 0, -58.18524, 0, 0, 0, 0, 0, 0, -19.779247, 0, -57.19575, 0, 0, 0, 0, 0, 0, -29.278347, 0, -56.40416, 0, 0, 0, 0, 0, 0, -38.38165, 0, -56.008366, 0, 0, 0, 0, 0, 0, -50.453426, 0, -55.41467, 0, 0, 0, 0, 0, 0, -59.35883, 0, -54.820976, 0, 0, 0, 0, 0, 0, -66.81027, 0, -53.646294, 0, 0, 0, 0, 0, 0, -69.91614, 0, -52.29504, 0, 0, 0, 0, 0, 0, -72.41698, 0, -49.713535, 0, 0, 0, 0, 0, 0, -73.44554, 0, -46.728672, 0, 0, 0, 0, 0, 0, -73.26403, 0, -44.469856, 0, 0, 0, 0, 0, 0, -73.17168, 0, -42.50585, 0, 0, 0, 0, 0, 0, -73.013794, 0, -40.374428, 0, 0, 0, 0, 0, 0, -71.034805, 0, -35.031185, 0, 0, 0, 0, 0, 0, -67.27475, 0, -26.917366, 0, 0, 0, 0, 0, 0, -66.204285, 0, -24.117704, 0, 0, 0, 0, 0, 0, -65.03739, 0, -21.15386, 0, 0, 0, 0, 0, 0, -64.75744, 0, -17.958235, 0, 0, 0, 0, 0, 0, -65.382645, 0, -15.517906, 0, 0, 0, 0, 0, 0, -67.97508, 0, -12.512109, 0, 0, 0, 0, 0, 0, -71.73955, 0, -10.789707, 0, 0, 0, 0, 0, 0, -74.62941, 0, -10.829818, 0, 0, 0, 0, 0, 0, -77.75075, 0, -11.411555, 0, 0, 0, 0, 0, 0, -80.998184, 0, -13.829859, 0, 0, 0, 0, 0, 0, -83.10658, 0, -17.220371, 0, 0, 0, 0, 0, 0, -84.49187, 0, -25.532084, 0, 0, 0, 0, 0, 0, -85.28346, 0, -31.666918, 0, 0, 0, 0, 0, 0, -86.470856, 0, -39.978634, 0, 0, 0, 0, 0, 0, -85.57872, 0, -55.36296, 0, 0, 0, 0, 0, 0, -83.99554, 0, -70.996895, 0, 0, 0, 0, 0, 0, -78.4544, 0, -87.02663, 0, 0, 0, 0, 0, 0, -78.4544, 0, -98.5047, 0, 0, 0, 0, 0, 0, -83.00605, 0, -106.618515, 0, 0, 0, 0, 0, 0, -89.73458, 0, -109.38909, 0, 0, 0, 0, 0, 0, -99.03578, 0, -110.972275, 0, 0, 0, 0, 0, 0, -107.74329, 0, -108.795395, 0, 0, 0, 0, 0, 0, -116.6487, 0, -102.46266, 0, 0, 0, 0, 0, 0, -121.00246, 0, -94.94254, 0, 0, 0, 0, 0, 0, -121.596146, 0, -86.43293, 0, 0, 0, 0, 0, 0, -118.23188, 0, -79.30861, 0, 0, 0, 0, 0, 0, -115.65921, 0, -76.53804, 0, 0, 0, 0, 0, 0, -107.94119, 0, -69.41371, 0, 0, 0, 0, 0, 0, -104.37903, 0, -65.25786, 0, 0, 0, 0, 0, 0, -102.20215, 0, -60.904102, 0, 0, 0, 0, 0, 0, -101.60846, 0, -56.154552, 0, 0, 0, 0, 0, 0, -102.46721, 0, -45.905483, 0, 0, 0, 0, 0, 0, -108.094315, 0, -37.592716),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 94
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uu6xs"]
+albedo_color = Color(0, 0, 0, 1)
+
+[node name="Node3D" type="Node3D" unique_id=1465104256 node_paths=PackedStringArray("CarParent", "Camera")]
+script = ExtResource("1_uu6xs")
+CarParent = NodePath("CarHolder")
+Camera = NodePath("Camera")
+
+[node name="CarHolder" type="Node3D" parent="." unique_id=1880656385]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.27224, 112.59706, -30.383965)
+
+[node name="Ground" type="Node3D" parent="." unique_id=730095771]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 4.9491763, 0)
+
+[node name="Part" type="StaticBody3D" parent="Ground" unique_id=244136188]
+transform = Transform3D(426.74695, 0, 0, 0, 496.7396, 0, 0, -1.8189894e-12, 0.5000002, 0, 2.2581656e-07, -5.166081)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/Part" unique_id=1902272208]
+shape = SubResource("BoxShape3D_uu6xs")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="Ground/Part/CollisionShape3D" unique_id=274463400]
+mesh = SubResource("BoxMesh_r0du0")
+material = SubResource("StandardMaterial3D_glv2v")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1174404771]
+environment = SubResource("Environment_r0du0")
+camera_attributes = SubResource("CameraAttributesPractical_cm0pq")
+compositor = SubResource("Compositor_fos0i")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment" unique_id=666209313]
+transform = Transform3D(0.89021516, 0.43355888, 0.13979907, -0.39656508, 0.5865514, 0.7061825, 0.22417234, -0.6840938, 0.6940912, 11.838147, 13.9490385, 0)
+shadow_enabled = true
+
+[node name="RaceTrack" type="Path3D" parent="." unique_id=266621172]
+curve = SubResource("Curve3D_glv2v")
+
+[node name="WallLeft" type="CSGPolygon3D" parent="RaceTrack" unique_id=185449009 groups=["walls"]]
+use_collision = true
+collision_mask = 3
+polygon = PackedVector2Array(5.5, 0, 5.5, 6, 6, 6, 6, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = true
+
+[node name="WallRight" type="CSGPolygon3D" parent="RaceTrack" unique_id=1780756297 groups=["walls"]]
+use_collision = true
+collision_mask = 3
+polygon = PackedVector2Array(-5.5, 0, -5.5, 6, -6, 6, -6, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = true
+
+[node name="Track" type="CSGPolygon3D" parent="RaceTrack" unique_id=752575414]
+material_override = SubResource("StandardMaterial3D_uu6xs")
+use_collision = true
+collision_mask = 3
+polygon = PackedVector2Array(-6, 3, 0, 3, 6, 3, 0, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 0.78
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = true
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = true
+
+[node name="Checkpoints" type="Node3D" parent="." unique_id=470323746]
+
+[node name="Camera" type="Node3D" parent="." unique_id=135752605 node_paths=PackedStringArray("cars_parent")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -25.27224, 112.59706, -30.383965)
+script = ExtResource("2_uu6xs")
+cars_parent = NodePath("../CarHolder")
+
+[node name="CurrentCamera" type="Camera3D" parent="Camera" unique_id=60899966]

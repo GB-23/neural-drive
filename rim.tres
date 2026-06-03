@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cuutvprtpcvo2"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_5pq5q"]
+
+[resource]
+albedo_color = Color(0.5449745, 0.5449742, 0.54497427, 1)
+metallic = 0.81
+roughness = 0.39
+rim_enabled = true
+heightmap_enabled = true
+heightmap_texture = SubResource("NoiseTexture2D_5pq5q")
